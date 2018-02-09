@@ -11,50 +11,45 @@ int main(){
 		cin >> n;
 		temp=n;
 		max2=n;
-		if(n==50){
-			count=1;
+		if(n<50){
+			max=(100-n)/10;
+		}else if(n==50){
+			max=n/10;
 		}
 		if(n==100){
 			cout << "Burning completes in " << n/10 << " sec.";
-		}else{
+				}else{
 				for(;;){
 					cout << "Input the burner location:";
 					cin >> n;
-					if(n==50){
-						count=1;
-							}
 					if(n<0||n>100){
 						if(max==-99){
 							max=max2/10;
-									}
-						if(count==0){
 							cout << "Burning completes in " << max << " sec.";
 							break;
 									}
-						else if(count==1){
-							cout << "Burning completes in " << 50/10 << " sec.";
+						else {
+							cout << "Burning completes in " << max << " sec.";
 							break;
-										}
+							}
 									}
 					if(n<=temp){
 						cout << "The location must be greater than "<< temp <<". \n";
 								}
 					else if(n>=0&&n<=100&&n>temp) {
-						max=round((n-temp)/20);
+						max=(n-temp)/20;
+						//max=round((n-temp)/20);
 						temp=n;
+						if(n==50){
+							max=n/10;
+								}
 						if(n==100){
 							cout << "Burning completes in " << max << " sec.";
 							break;
 									}
 												  }
 						}			
-			}	
-	
-		
-		
-		
-		
-	
+			}
 
 	return 0;
 }
