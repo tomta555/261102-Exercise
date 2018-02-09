@@ -3,39 +3,58 @@
 #include<cmath>
 using namespace std;
 
-
-
 int main(){
-	//Array 
-	int x,burn=100,temp;
-	cout << "Input the burner location:";
-	cin >> x;
-	temp=x;
-	for(;;){
-	
-		if(x<0 or x>=100){
-			cout << "Burning completes in " << x/10 << "sec.";
-			break;
-		}
+
+	int c;
+	float max=-99,n,temp,max2,count=0;
 		cout << "Input the burner location:";
-		cin >> x;
-		if(x<=temp)
-		{
-		cout << "The location must be greater than "<< x <<".";
-		}else temp=x;
-
-	
+		cin >> n;
+		temp=n;
+		max2=n;
+		if(n==50){
+			count=1;
+		}
+		if(n==100){
+			cout << "Burning completes in " << n/10 << " sec.";
+		}else{
+				for(;;){
+					cout << "Input the burner location:";
+					cin >> n;
+					if(n==50){
+						count=1;
+							}
+					if(n<0||n>100){
+						if(max==-99){
+							max=max2/10;
+									}
+						if(count==0){
+							cout << "Burning completes in " << max << " sec.";
+							break;
+									}
+						else if(count==1){
+							cout << "Burning completes in " << 50/10 << " sec.";
+							break;
+										}
+									}
+					if(n<=temp){
+						cout << "The location must be greater than "<< temp <<". \n";
+								}
+					else if(n>=0&&n<=100&&n>temp) {
+						max=round((n-temp)/20);
+						temp=n;
+						if(n==100){
+							cout << "Burning completes in " << max << " sec.";
+							break;
+									}
+												  }
+						}			
+			}	
 	
 		
 		
 		
-	}
+		
 	
-
-
-
-
-
 
 	return 0;
 }
